@@ -31,5 +31,9 @@
     "stylelint": "^15.10.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "stylelint.enable": true,
+  "stylelint.config": {
+    "extends": "@it-incubator/stylelint-config"
   }
 }
