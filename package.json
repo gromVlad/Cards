@@ -48,5 +48,11 @@
   "stylelint.enable": true,
   "stylelint.config": {
     "extends": "@it-incubator/stylelint-config"
-  }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ]
 }
