@@ -1,3 +1,11 @@
+import { Button } from './components/ui/button'
+
 export function App() {
-  return <div>Hello dfgdfgdfg</div>
+  return (
+    <>
+      <Button variant="secondary" fullWidth={true}>
+        Hello
+      </Button>
+    </>
+  )
 }

@@ -3,14 +3,19 @@ import { ComponentPropsWithoutRef } from 'react'
 import s from './button.module.scss'
 
 export type ButtonProps = {
+  as: any
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
 } & ComponentPropsWithoutRef<'button'> //ComponentPropsWithoutRef<'button'> - это пропсы, которые принимает стандартный html-тег button, мы их расширяем своими пропсами.
 
-export const Button = ({ variant = 'primary', fullWidth, className, ...rest }: ButtonProps) => {
+export const Button = ({
+  variant = 'primary',
+  fullWidth,
+  className,
+  as: Component = 'button',
+  ...rest
+}: ButtonProps) => {
   return (
-    <button className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest} />
+    <Component className={`${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`} {...rest} />
   )
 }
-
-//21 2023 06 24 par 2 -> 9.08
