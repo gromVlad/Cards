@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.disabledText {
+  color: var(--dark-100, #808080);
+}
+
+.checkboxWrapper {
+  margin-right: 8px;
+  padding: 4px;
+  border-radius: 50%;
+  &:hover {
+    background-color: var(--color-dark-100);
+  }
+  &:active {
+    background-color: var(--color-dark-500);
+  }
+  &:focus {
+    background-color: var(--color-dark-100);
+  }
+
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+}

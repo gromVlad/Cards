@@ -87,7 +87,6 @@
   --color-dark-700: #f9f7ff;
   --color-dark-900: #fff;
 
-  --color-bg-primary: var(--color-dark-900);
 
   --color-bg-primary: var(--color-dark-900);
   --color-bg-secondary: #fcfcfc;
@@ -107,4 +106,8 @@
   // text
   --color-text-primary: var(--color-light-100);
   --color-text-link: var(--color-primary-500);
+
+  //checbox
+  --color-checkbox-disabled:var(--dark-100, #808080);
+  --color-bg-primary-active:var(#808080)
 }
