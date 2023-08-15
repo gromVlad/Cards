@@ -1,0 +1,99 @@
+// CustomInput.module.scss
+
+.errorContainer {
+  input {
+    border: 2px solid var(--danger-300, #f23d61);
+    &::placeholder {
+      color: var(--danger-300, #f23d61);
+    }
+
+    &:hover {
+      color: var(--danger-300, #f23d61);
+      border: 2px solid var(--danger-300, #f23d61);
+    }
+    &:focus-visible  {
+      color: var(--danger-300, #f23d61);
+      border: 2px solid var(--danger-300, #f23d61);
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  max-width: 284px;
+  align-items: flex-start;
+}
+
+.input {
+  width: 100%;
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
+  border: 1px solid var(--dark-300, #4c4c4c);
+  outline: 0;
+
+  transition: border-color 0.2s;
+  border-radius: 2px;
+  color: var(--light-100, #fff);
+  background: transparent;
+
+  &[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+
+  &[type='search'] {
+    padding: 6px 12px 6px 26px;
+    background: url(./searchOutline.svg) no-repeat 2% 50%;
+    &:hover {
+      background: url(./searchOutline.svg) no-repeat 2% 50%;
+    }
+  }
+
+  &::placeholder {
+    color: var(--light-100, #fff);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--color-outline-focus);
+    border-color: var(--color-outline-focus);
+  }
+
+  &:hover {
+    background: var(--color-dark-700);
+    border: 2px solid var(--dark-100, #808080);
+    &::placeholder {
+      color: var(--dark-100, #808080);
+    }
+  }
+}
+
+.error {
+  color :var(--danger-300, #f23d61);
+  font-size: 12px;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.inputContainer img.leftIcon {
+  left: 5px;
+}
+
+.inputContainer img.rightIcon {
+  right: 5px;
+}

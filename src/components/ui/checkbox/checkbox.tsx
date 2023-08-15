@@ -27,11 +27,10 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   const finalInputClassName = styles.checkbox + (className ? ' ' + className : '')
-  /* + disabled ? styles.dis */
 
   return (
     <label className={`${styles.label} `}>
-      <div className={styles.checkboxWrapper}>
+      <div className={disabled ? styles.checkboxWrapperDis : styles.checkboxWrapper}>
         <input
           type="checkbox"
           className={finalInputClassName}
