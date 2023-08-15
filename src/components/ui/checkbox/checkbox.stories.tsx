@@ -10,14 +10,14 @@ export default {
 
 export const Uncontrolled = {
   args: {
-    label: 'Click here',
+    children: 'Click here',
     disabled: false,
   },
 }
 
 export const Uncontrolled2 = {
   args: {
-    label: 'Click here',
+    children: 'Click here',
     disabled: false,
     checked: true,
   },
@@ -25,7 +25,7 @@ export const Uncontrolled2 = {
 
 export const Uncontrolled3 = {
   args: {
-    label: 'Click here',
+    children: 'Click here',
     disabled: false,
     checked: false,
   },
