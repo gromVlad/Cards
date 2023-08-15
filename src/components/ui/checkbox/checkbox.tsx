@@ -11,7 +11,6 @@ export type CheckboxProps = {
   disabled?: boolean
   required?: boolean
   id?: string
-  position?: 'left'
   children?: ReactNode
 }
 export const Checkbox: FC<CheckboxProps> = ({
@@ -32,15 +31,17 @@ export const Checkbox: FC<CheckboxProps> = ({
 
   return (
     <label className={`${styles.label} `}>
-      <input
-        type="checkbox"
-        className={finalInputClassName}
-        checked={checked}
-        onChange={handleCheckedChange}
-        disabled={disabled}
-        required={required}
-        id={id}
-      />
+      <div className={styles.checkboxWrapper}>
+        <input
+          type="checkbox"
+          className={finalInputClassName}
+          checked={checked}
+          onChange={handleCheckedChange}
+          disabled={disabled}
+          required={required}
+          id={id}
+        />
+      </div>
       {children && (
         <Typography variant="body2" as={'span'} className={disabled ? styles.disabledText : ' '}>
           {children}
