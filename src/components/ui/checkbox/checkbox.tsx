@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 
 import { Typography } from '../typography'
 
@@ -6,12 +6,12 @@ import styles from './checkbox.module.scss'
 
 export type CheckboxProps = {
   className?: string
-  checked: boolean
+  checked?: boolean
   onChange?: (checked: boolean) => void
   disabled?: boolean
   required?: boolean
   id?: string
-  children?: ReactNode
+  label?: string
 }
 export const Checkbox: FC<CheckboxProps> = ({
   checked,
@@ -20,7 +20,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   required,
   id,
   className,
-  children,
+  label,
 }) => {
   const handleCheckedChange = () => {
     onChange && onChange(!checked)
@@ -41,9 +41,9 @@ export const Checkbox: FC<CheckboxProps> = ({
           id={id}
         />
       </div>
-      {children && (
+      {label && (
         <Typography variant="body2" as={'span'} className={disabled ? styles.disabledText : ' '}>
-          {children}
+          {label}
         </Typography>
       )}
     </label>

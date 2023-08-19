@@ -2,13 +2,13 @@ import { useState } from 'react'
 
 import type { Meta } from '@storybook/react'
 
-import { Input } from './ Input'
+import { InputField } from './inputField'
 
 export default {
   title: 'Components/Input',
-  component: Input,
+  component: InputField,
   tags: ['autodocs'],
-} satisfies Meta<typeof Input>
+} satisfies Meta<typeof InputField>
 
 export const Text = {
   args: {
@@ -53,7 +53,7 @@ export function WithText() {
     <>
       <div>
         <h1>{value}</h1>
-        <Input type="text" value={value} onChangeText={setValue} />
+        <InputField type="text" value={value} onChangeText={setValue} />
       </div>
     </>
   )
@@ -66,7 +66,7 @@ export function WithPassword() {
     <>
       <div>
         <h1>{value}</h1>
-        <Input type="password" value={value} onChangeText={setValue} />
+        <InputField type="password" value={value} onChangeText={setValue} />
       </div>
     </>
   )
@@ -79,7 +79,7 @@ export function WithSearch() {
     <>
       <div>
         <h1>{value}</h1>
-        <Input type="search" value={value} onChangeText={setValue} />
+        <InputField type="search" value={value} onChangeText={setValue} />
       </div>
     </>
   )

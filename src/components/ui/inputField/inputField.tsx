@@ -3,7 +3,7 @@ import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState } from 'r
 
 import { Typography } from '../typography'
 
-import styles from './ Input.module.scss'
+import styles from './ inputField.module.scss'
 import eyeOutline from './eyeOutline.svg'
 import layer from './layer.svg'
 
@@ -14,7 +14,7 @@ type Props = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputE
   value?: string
 }
 
-export const Input: React.FC<Props> = props => {
+export const InputField: React.FC<Props> = props => {
   const [value, setValue] = useState(props.value || '')
   const [isVisible, setIsVisible] = useState(false)
 
