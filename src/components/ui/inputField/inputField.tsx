@@ -1,5 +1,5 @@
 // CustomInput.tsx
-import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState } from 'react'
+import { ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, forwardRef, useState } from 'react'
 
 import { Typography } from '../typography'
 
@@ -8,13 +8,13 @@ import eyeOutline from './eyeOutline.svg'
 import layer from './layer.svg'
 
 type Props = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-  type: 'text' | 'password' | 'search'
+  type: 'text' | 'password' | 'search' | 'email'
   error?: string
   onChangeText?: (value: string) => void
   value?: string
 }
 
-export const InputField: React.FC<Props> = props => {
+export const InputField = forwardRef<HTMLInputElement, Props>((props, ref) => {
   const [value, setValue] = useState(props.value || '')
   const [isVisible, setIsVisible] = useState(false)
 
@@ -55,9 +55,9 @@ export const InputField: React.FC<Props> = props => {
       <div className={styles.inputContainer}>
         {leftIcon}
         <input
-          // eslint-disable-next-line no-nested-ternary
-          placeholder={props.error ? 'Error' : props.type === 'search' ? 'Input search' : 'Input'}
+          placeholder={props.error ? 'Error' : props.type}
           {...props}
+          ref={ref}
           value={value}
           type={inputType}
           onChange={onChange}
@@ -72,4 +72,4 @@ export const InputField: React.FC<Props> = props => {
       )}
     </div>
   )
-}
+})
