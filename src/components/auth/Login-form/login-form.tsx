@@ -1,3 +1,4 @@
+import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -26,9 +27,10 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <DevTool control={control} />
       <InputField {...register('email')} type={'email'} error={errors.email?.message} />
       <InputField {...register('password')} type={'password'} error={errors.password?.message} />
-      <ControlledCheckbox {...register('rememberMe')} />
+      <ControlledCheckbox label={'remember me'} control={control} name={'rememberMe'} />
       <Button type="submit">Submit</Button>
     </form>
   )
