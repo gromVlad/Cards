@@ -1,0 +1,51 @@
+// Select.module.scss
+
+.container {
+  position: relative;
+}
+
+.select {
+  top: 0;
+  left: 0;
+  border-radius: 2px;
+  border: 1px solid var(--dark-300, #4C4C4C);
+  position: absolute;
+  width: 100%;
+  display: block;
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #ccc;
+  appearance: none;
+  background-color: transparent;
+
+  & option {
+  background-color: transparent; 
+  
+}
+}
+
+.arrowSvg {
+  display: block;
+  top: 10px;
+  right: 12px;
+  position: absolute;
+  transition: transform 0.3s; 
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
+.closed{
+  transform: rotate(0deg);
+}
+
+.select:focus {
+ border-radius: 2px;
+ border: 2px solid var(--info-700, #2F68CC);
+}
+
+option {
+  all: unset;
+}
+
