@@ -1,0 +1,40 @@
+// TabSwitcher.module.scss
+
+.tabSwitcher {
+  display: inline-flex;
+  padding: 6px 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab {
+  padding: 6px 24px;
+  //color: #4F4F4F;
+  background-color: transparent;
+  border-radius: 2px 0px 0px 2px;
+  border: 1px solid var(--dark-300, #4c4c4c);
+
+  &.tabActive {
+    color: #ffffff;
+    background: var(--primary-500, #8c61ff);
+  }
+
+  &:hover {
+    color: var(--light-900, #c3c1c7);
+    background: var(--dark-300, #4c4c4c);
+  }
+
+  &:focus {
+    background: var(--dark-700, #171717);
+    border: 2px solid var(--info-900, #234e99);
+    // outline-offset: 2px;
+  }
+  &:disabled {
+    border: 1px solid var(--dark-300, #4c4c4c);
+    background: var(--dark-700, #171717);
+
+    .disTextTab {
+      color: var(--dark-300, #4c4c4c);
+    }
+  }
+}
