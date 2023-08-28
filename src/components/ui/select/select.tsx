@@ -1,67 +1,86 @@
-import { ChangeEvent, DetailedHTMLProps, SelectHTMLAttributes, useState, useRef } from 'react'
+import { useState } from 'react'
 
-import arrow from './LayerSelect.svg'
-import s from './select.module.scss'
+import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
+import * as Select from '@radix-ui/react-select'
 
-type DefaultSelectPropsType = DetailedHTMLProps<
-  SelectHTMLAttributes<HTMLSelectElement>,
-  HTMLSelectElement
->
+import { Typography } from '..'
 
-type SuperSelectPropsType = DefaultSelectPropsType & {
-  options?: any[]
-  onChangeOption?: (option: any) => void
-  themeId?: number
+import style from './select.module.scss'
+
+interface SelectProps {
+  value?: string
+  onChange?: (value: string) => void
+  placeholder?: string
+  disabled?: boolean
+  options?: Array<{ value: string; label: string }>
 }
 
-export const Select: React.FC<SuperSelectPropsType> = ({
-  options,
-  className,
+export const SelectComponent = ({
+  value,
   onChange,
-  onChangeOption,
-  ...restProps
-}) => {
+  disabled,
+  options,
+  placeholder,
+}: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const selectRef = useRef<HTMLSelectElement>(null)
 
-  const mappedOptions: any[] = options
-    ? options.map((o: { id: number; value: string }) => (
-        <option id={'option-' + o.id} className={s.option} key={o.id} value={o.id}>
-          {o.value}
-        </option>
-      ))
-    : []
-
-  const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-    if (onChangeOption) {
-      onChangeOption(e.currentTarget.value)
-      setIsOpen(false)
-    }
+  const handleOpen = () => {
+    setIsOpen(true)
   }
 
-  const handleClick = () => {
+  const handleClose = () => {
     setIsOpen(false)
-    setTimeout(() => {
-      if (selectRef.current) {
-        selectRef.current.blur()
-      }
-    }, 0)
   }
+
+  const isDis = disabled || !options || options.length === 0 ? true : false
 
   return (
-    <div className={s.container}>
-      <img className={`${s.arrowSvg} ${isOpen ? s.open : s.closed}`} src={arrow} />
-      <select
-        ref={selectRef}
-        onFocus={() => setIsOpen(true)}
-        onBlur={() => setIsOpen(false)}
-        onClick={handleClick}
-        className={s.select}
-        onChange={onChangeCallback}
-        {...restProps}
-      >
-        {mappedOptions}
-      </select>
-    </div>
+    <Select.Root
+      value={value}
+      onValueChange={onChange}
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      disabled={isDis}
+    >
+      <Select.Trigger className={style.selectTrigger} aria-label="Select" onClick={handleOpen}>
+        <Select.Value placeholder={placeholder} />
+        <Select.Icon className={style.selectIcon}>
+          {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        </Select.Icon>
+      </Select.Trigger>
+      <Select.Portal className={style.selectPortal}>
+        <Select.Content
+          className={style.selectContent}
+          position="popper"
+          onCloseAutoFocus={handleClose}
+        >
+          <Select.ScrollUpButton className={style.selectScrollButton}>
+            <ChevronUpIcon />
+          </Select.ScrollUpButton>
+          <Select.Viewport className={style.selectViewport}>
+            <Select.Group className={style.selectGroup}>
+              {options?.map(option => (
+                <Select.Item
+                  key={option.value}
+                  value={option.value}
+                  disabled={disabled}
+                  className={style.selectItem}
+                >
+                  <Select.ItemText className={style.selectItemText}>
+                    <Typography variant="body1" className={isDis ? style.disText : ''}>
+                      {option.label}
+                    </Typography>
+                  </Select.ItemText>
+                  <Select.ItemIndicator></Select.ItemIndicator>
+                </Select.Item>
+              ))}
+            </Select.Group>
+          </Select.Viewport>
+          <Select.ScrollDownButton className={style.selectScrollButton}>
+            <ChevronDownIcon />
+          </Select.ScrollDownButton>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   )
 }

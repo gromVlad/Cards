@@ -1,51 +1,61 @@
-// Select.module.scss
-
-.container {
-  position: relative;
-}
-
-.select {
-  top: 0;
-  left: 0;
-  border-radius: 2px;
-  border: 1px solid var(--dark-300, #4C4C4C);
-  position: absolute;
-  width: 100%;
-  display: block;
-  padding: 6px 12px;
-  font-size: 16px;
-  color: #ccc;
-  appearance: none;
-  background-color: transparent;
-
-  & option {
-  background-color: transparent; 
-  
-}
-}
-
-.arrowSvg {
-  display: block;
-  top: 10px;
-  right: 12px;
-  position: absolute;
-  transition: transform 0.3s; 
-}
-
-.open {
-  transform: rotate(180deg);
-}
-
-.closed{
-  transform: rotate(0deg);
-}
-
-.select:focus {
- border-radius: 2px;
- border: 2px solid var(--info-700, #2F68CC);
-}
-
-option {
+button {
   all: unset;
 }
 
+.selectTrigger {
+  width: 100%;
+  display: flex;
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid var(--dark-300, #4c4c4c);
+  padding: 6px 12px;
+  justify-content: space-between;
+
+  &[disabled] {
+    pointer-events: none;
+    &::placeholder{
+      color: var(--dark-300, #4C4C4C);
+    }
+  }
+
+  &[disabled] .selectIcon {
+    color: var(--dark-300, #4c4c4c);
+  }
+
+  &:hover {
+    background-color: var(--dark-100, #808080);
+  }
+  &:focus {
+    border: 1px solid var(--dark-300, #382766);
+  }
+}
+
+.selectContent {
+  width: var(--radix-select-trigger-width);
+  background-color: transparent;
+  border: 1px solid var(--dark-300, #4c4c4c);
+}
+
+.selectItem {
+  display: block;
+  border-radius: 3px;
+  padding: 6px 12px;
+  &:hover {
+    border-radius: 2px;
+    border: 1px solid var(--dark-300, #4c4c4c);
+    background: var(--primary-900, #382766);
+  }
+  &[data-disabled] {
+    pointer-events: none;
+  }
+  &[data-highlighted] {
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid var(--dark-300, #4c4c4c);
+    background: var(--primary-900, #382766);
+  }
+}
+
+.disText {
+  color: var(--dark-300, #4C4C4C);
+}
