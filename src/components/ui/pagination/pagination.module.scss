@@ -1,0 +1,17 @@
+.arrow {
+  color:  var(--light-100, #FFF);
+}
+
+.element{
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 6px;
+  &:hover{
+    background: var(--dark-500, #333);
+  }
+  &:active{
+    background:  var(--light-100, #FFF);
+    color: var(--dark-900, #000);
+  }
+
+}

@@ -30,7 +30,11 @@ export const Control = () => {
         max={10}
         minStepsBetweenThumbs={1}
       />
-      <div>Значение: {value}</div>{' '}
+      <div>Значение: {value.map((el, index) => `${index + 1}: ${el}  | `)}</div>{' '}
     </>
   )
+}
+
+export const Disable = () => {
+  return <SliderComponent min={0} max={100} defaultValue={[10, 60]} disabled={true} />
 }
