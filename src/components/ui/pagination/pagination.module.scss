@@ -30,6 +30,13 @@
   }
 }
 
+.elementActive{
+  background: var(--light-100, #FFF);
+  .text {
+      color: var(--dark-900, #000);
+    }
+}
+
 .text {
   color: var(--light-100, #FFF);
 }
@@ -43,7 +50,8 @@
 }
 
 .select{
-  background: var(--dark-500, #333);
+  color: #FFF;
+  //background: var(--dark-500, #333);
   display: inline-flex;
   width: 80px;
   height: 30px;
