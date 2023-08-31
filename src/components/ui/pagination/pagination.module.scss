@@ -1,17 +1,51 @@
 .arrow {
-  color:  var(--light-100, #FFF);
+  display: inline-block;
+  transform: scale(1); 
+  color: var(--light-100, #FFF);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
-.element{
+.element {
+  cursor: pointer;
   display: inline-block;
   padding: 2px 8px;
   margin: 0 6px;
-  &:hover{
+  transition:  transform 0.3s ease; 
+
+  &:hover {
     background: var(--dark-500, #333);
   }
-  &:active{
-    background:  var(--light-100, #FFF);
-    color: var(--dark-900, #000);
-  }
 
+  &:active {
+    background: var(--light-100, #FFF);
+
+    .text {
+      color: var(--dark-900, #000);
+    }
+  }
+}
+
+.text {
+  color: var(--light-100, #FFF);
+}
+
+.textSelectShow{
+  margin:0 6px 0 24px;
+}
+
+.textListSelect{
+  margin-left: 6px;
+}
+
+.select{
+  background: var(--dark-500, #333);
+  display: inline-flex;
+  width: 80px;
+  height: 30px;
+  
 }

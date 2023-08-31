@@ -13,6 +13,7 @@ interface SelectProps {
   placeholder?: string
   disabled?: boolean
   options?: Array<{ value: string; label: string }>
+  className?: string
 }
 
 export const SelectComponent = ({
@@ -21,6 +22,7 @@ export const SelectComponent = ({
   disabled,
   options,
   placeholder,
+  className,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -42,7 +44,11 @@ export const SelectComponent = ({
       onOpenChange={setIsOpen}
       disabled={isDis}
     >
-      <Select.Trigger className={style.selectTrigger} aria-label="Select" onClick={handleOpen}>
+      <Select.Trigger
+        className={`${style.selectTrigger} ${className}`}
+        aria-label="Select"
+        onClick={handleOpen}
+      >
         <Select.Value placeholder={placeholder} />
         <Select.Icon className={style.selectIcon}>
           {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}

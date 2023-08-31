@@ -17,7 +17,7 @@ export const Default = () => <Pagination page={2} totalPages={10} setPage={() =>
 export function Primary() {
   let [pageNumber, setPageNumber] = useState(1)
 
-  let total = 20
+  let total = 50
 
   return (
     <>
